@@ -5,10 +5,12 @@
 
 body {
     margin: 0;
-    display: grid;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: linear-gradient(to right, #ffecd2, #fcb69f);
-    place-items: center;
-    height: 100vh;
+    padding: 90px 20px 30px;
 }
 
 /* TOP BAR */
@@ -23,8 +25,8 @@ body {
     backdrop-filter: blur(12px);
     display: flex;
     justify-content: center;
-    font-size: xx-large;
     align-items: center;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
     padding: 0 20px;
     z-index: 1000;
 }
@@ -33,6 +35,7 @@ body {
     color: black;
     font-weight: 800;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 .card {
@@ -40,27 +43,25 @@ body {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 10px;
     box-shadow: 0 8px 32px black;
     padding: 2px 12px;
     border: 2px solid white;
     border-radius: 20px;
-    width: 50%;
+    width: min(90vw, 620px);
     place-items: center;
     text-align: center;
-    height: 460px;
+    min-height: 460px;
 }
 
 .top {
     background: rgba(255, 255, 255, 0.482);
     backdrop-filter: blur(5px);
     border: 1px solid rgba(3, 3, 3, 0.699);
-    border-radius: 10px;
     width: 100%;
     box-shadow: 0 0px 32px rgba(0, 0, 0, 0.1);
     border-radius: 15px;
     padding: 6px 12px;
-    height: 320px;
+    min-height: 320px;
 }
 
 .hd {
@@ -72,6 +73,7 @@ body {
     padding: 1px 10px;
     border: 2px solid black;
     border-radius: 20px;
+    width: 100%;
 }
 
 h4 {
@@ -92,10 +94,10 @@ h4 {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     width: 100%;
     margin-bottom: 20px;
-    padding: 16px 0px;
+    padding: 16px 14px;
     border-radius: 12px;
     border: 2px solid black;
-    height: 210px;
+    min-height: 210px;
 }
 
 #head {
@@ -105,14 +107,20 @@ h4 {
     border: 2px solid rgba(103, 239, 88, 0.74);
     border-radius: 10px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 0 0 14px;
 }
 
 #joke {
     display: flex;
+    align-items: center;
     justify-content: center;
-    height: 90px;
+    min-height: 90px;
     font-weight: 900;
     color: black;
+    line-height: 1.5;
+    word-break: break-word;
+    padding: 0 8px;
 }
 
 #check {
@@ -124,9 +132,58 @@ h4 {
     cursor: pointer;
     box-shadow: black 0px 3px 15px;
     transition: 0.60s ease-in-out;
+    width: auto;
+    max-width: 100%;
 }
 
 #check:hover {
     transform: scale(1.05);
     background-color: skyblue;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .card {
+        width: min(92vw, 420px);
+        padding: 10px;
+        min-height: auto;
+    }
+
+    .top {
+        padding: 8px 10px;
+        min-height: 260px;
+    }
+
+    .hd {
+        padding: 8px 10px;
+    }
+
+    .hd h2 {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+    }
+
+    h4 {
+        font-size: 1rem;
+        margin: 0.8rem 0;
+    }
+
+    .display {
+        min-height: 170px;
+        padding: 12px 10px;
+    }
+
+    #head,
+    #joke {
+        font-size: 0.95rem;
+    }
+
+    #check {
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 12px 16px;
+    }
 }
